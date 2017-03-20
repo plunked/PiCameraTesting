@@ -8,7 +8,7 @@ ap.add_argument("-i", "--image", required = True, help = "path to the image")
 args = vars(ap.parse_args())
 
 image = cv2.imread(args["image"])
-gray = cv2.cvtColor(image, cv2.COLOR_BAYER_BG2GRAY)
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 fd = FaceDetector(args["face"])
 faceRects = fd.detect(gray, scaleFactor = 1.1, minNeighbors = 5, minSize = (30, 30))
