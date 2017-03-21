@@ -26,6 +26,7 @@ time.sleep(0.1)
 for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
     frame = frames.array
     frame = imutils.resize(frame, width=300)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     #detecting the faces and then cloning so as to draw
 
