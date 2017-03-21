@@ -33,7 +33,7 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
     frameClone = frame.copy()
 
     for (fX, fY, fW, fH) in faceRects:
-		cv2.rectangle(frameClone, (fX, fY), (fX + fW, fY + fH), (0, 255, 0), 2)
+        cv2.rectangle(frameClone, (fX, fY), (fX+fW, fY+fH), (0, 255, 0), 2)
 
 	# show our detected faces, then clear the frame in
 	# preparation for the next frame
