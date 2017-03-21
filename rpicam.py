@@ -16,6 +16,7 @@ args = vars(ap.parse_args())
 camera = PiCamera()
 camera.resolution = (640, 480)
 camera.framerate = (32)
+camera.vflip = True
 rawCapture = PiRGBArray(camera, size=(640, 480))
 
 #constructing the detector
@@ -30,7 +31,7 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
 
     #detecting the faces and then cloning so as to draw
 
-    faceRects = fd.detect(gray, scaleFactor = 1.1, minNeighbors = 5, minSize = (30, 30))
+    faceRects=fd.detect(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     frameClone = frame.copy()
 
     for (fX, fY, fW, fH) in faceRects:
