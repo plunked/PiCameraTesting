@@ -37,9 +37,9 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
 
 	# show our detected faces, then clear the frame in
 	# preparation for the next frame
-	cv2.imshow("Face", frameClone)
+    cv2.imshow("Face", frameClone)
     rawCapture.truncate(0)
-
-	if cv2.waitKey(1) & 0xFF == ord("q"):
-		break
+    
+    if cv2.waitKey(1) & 0xFF == ord("q"):
+        break
 
