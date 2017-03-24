@@ -30,7 +30,7 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     #detecting the faces and then cloning so as to draw
-
+    
     faceRects=fd.detect(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     frameClone = frame.copy()
 
@@ -41,7 +41,7 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
 	# preparation for the next frame
     cv2.imshow("Face", frameClone)
     rawCapture.truncate(0)
-    
+
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 
