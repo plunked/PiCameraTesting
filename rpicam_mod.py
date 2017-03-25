@@ -1,8 +1,8 @@
-from facedetector import FaceDetector
-from camstream import camStream
-import imutils
+from __future__ import print_function
 import argparse
 import time
+from facedetector import FaceDetector
+from camstream import camStream
 import cv2
 
 #constructing argument parser
@@ -13,18 +13,15 @@ ap.add_argument("-v", "--video", help="path to the video file")
 args = vars(ap.parse_args())
 
 
-camera = camStream(usePiCam=args["picam"] > 0).start()
+camera = camStream(usePiCamera=args["picam"] > 0).start()
 time.sleep(2.0)
 print("test init")
 #constructing the detector
 fd = FaceDetector(args["face"])
+
 print("test0")
 
-
-        
-
 while True:
-
     for frames in camera.read():
         frame = frames.array
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -32,12 +29,12 @@ while True:
         faceRects=fd.detect(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
         frameClone = frame.copy()
         print("test1")
-        
+
         for (fX, fY, fW, fH) in faceRects:
             cv2.rectangle(frameClone, (fX, fY), (fX+fW, fY+fH), (0, 255, 0), 2)
-        
+
         cv2.imshow("Face", frameClone)
         camera.rawCapture.truncate(0)
-        
+
         if cv2.waitKey(1) & 0xFF == ord("q"):
-        break
+            break
