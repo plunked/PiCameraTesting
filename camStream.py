@@ -9,17 +9,17 @@ class camStream:
 			# explicity told to do so -- this helps remove the
 			# requirement of `picamera[array]` from desktops or
 			# laptops that still want to use the `imutils` package
-			from .pivideostream import PiVideoStream
+			from rpiCamStream import rpiCamStream
 
 			# initialize the picamera stream and allow the camera
 			# sensor to warmup
-			self.stream = PiVideoStream(resolution=resolution,
+			self.stream = rpiCamStream(resolution=resolution,
 				framerate=framerate)
 
 		# otherwise, we are using OpenCV so initialize the webcam
 		# stream
 		else:
-			self.stream = WebcamVideoStream(src=src)
+			self.stream = webCamStream(src=src)
 
 	def start(self):
 		# start the threaded video stream
