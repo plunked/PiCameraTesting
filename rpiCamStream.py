@@ -16,7 +16,9 @@ class rpiCamStream:
         self.stopped = False
 
     def start(self):
-        Thread(target=self.update, args=()).start()
+        t = Thread(target=self.update, args=())
+        t.daemon = True
+        t.start()
         return self
     
     def update(self):
