@@ -1,3 +1,4 @@
+from webCamStream import webCamStream
 
 class camStream:
     def __init__(self, src=0, usePiCam=False, resolution=(320,240), framerate=32):
@@ -7,7 +8,6 @@ class camStream:
             self.stream = rpiCamStream(resolution=resolution, framerate=framerate)
         
         else:
-            from webCamStream import webCamStream
             self.stream = webCamStream(src=src)
     
     def start(self):

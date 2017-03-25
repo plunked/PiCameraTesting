@@ -12,15 +12,10 @@ ap.add_argument("-p", "--picam", type=int, default=-1, help="use PiCam instead")
 ap.add_argument("-v", "--video", help="path to the video file")
 args = vars(ap.parse_args())
 
-#initializing PiCamera
-#camera = PiCamera()
-#camera.resolution = (640, 480)
-#camera.framerate = (32)
-#camera.vflip = True
-#rawCapture = PiRGBArray(camera, size=(640, 480))
 
 camera = camStream(usePiCam=args["picam"] > 0, resolution=(640, 480)).start()
 time.sleep(2.0)
+
 #constructing the detector
 fd = FaceDetector(args["face"])
 
