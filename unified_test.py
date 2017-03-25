@@ -8,7 +8,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--picam", type=int, default=-1, help="whether or not the Raspbery Pi camera should be used")
 args = vars(ap.parse_args())
 
-videoStream = camStream(usePiCam=args["picam"] > 0).start()
+videoStream = camStream(usePiCamera=args["picam"] > 0).start()
 time.sleep(2.0)
 
 while True:
