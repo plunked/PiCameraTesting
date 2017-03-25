@@ -1,7 +1,7 @@
 from webCamStream import webCamStream
 
 class camStream:
-    def __init__(self, src=0, usePiCam=False, resolution=(320,240), framerate=32):
+    def __init__(self, src=0, usePiCam=False, resolution=(320, 240), framerate=32):
         
         if usePiCam:
             from rpiCamStream import rpiCamStream
