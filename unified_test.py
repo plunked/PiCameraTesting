@@ -1,7 +1,7 @@
 from camStream import camStream
 import argparse
 import time
-import imutils
+#import imutils
 import cv2
 
 ap = argparse.ArgumentParser()
@@ -13,7 +13,7 @@ time.sleep(2.0)
 
 while True:
     frame = videoStream.read()
-    frame = imutils.resize(frame, width=400)
+    #frame = imutils.resize(frame, width=400)
 
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1) & 0xFF
