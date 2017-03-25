@@ -1,4 +1,4 @@
-from webCamStream import webCamStream
+from webcamstream import webCamStream
 
 class camStream:
 	def __init__(self, src=0, usePiCamera=False, resolution=(320, 240),
@@ -9,7 +9,7 @@ class camStream:
 			# explicity told to do so -- this helps remove the
 			# requirement of `picamera[array]` from desktops or
 			# laptops that still want to use the `imutils` package
-			from rpiCamStream import rpiCamStream
+			from rpicamstream import rpiCamStream
 
 			# initialize the picamera stream and allow the camera
 			# sensor to warmup
