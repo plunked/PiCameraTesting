@@ -30,8 +30,7 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     #detecting the faces and then cloning so as to draw
-    
-    faceRects=fd.detect(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+    faceRects = fd.detect(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     frameClone = frame.copy()
 
     for (fX, fY, fW, fH) in faceRects:

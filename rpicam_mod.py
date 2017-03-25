@@ -25,8 +25,7 @@ while True:
     for frames in camera.read():
         frame = frames.array
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        
-        faceRects=fd.detect(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+        faceRects = fd.detect(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
         frameClone = frame.copy()
         print("test1")
 
