@@ -1,4 +1,4 @@
-from threading import thread
+from threading import Thread
 import cv2
 
 class webCamStream:

@@ -1,6 +1,6 @@
 from picamera.array import PiRGBArray
 from picamera import PiCamera
-from threading import thread
+from threading import Thread
 import cv2
 
 class rpiCamStream:
