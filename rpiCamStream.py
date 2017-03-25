@@ -10,6 +10,7 @@ class rpiCamStream:
         self.camera.framerate = framerate
         self.rawCapture = PiRGBArray(self.camera, size=resolution)
         self.stream = self.camera_capture_continuous(self.rawCapture, format="bgr", use_video_port=True)
+        self.camera.vflip = True
         
         self.frame = None
         self.stopped = False
