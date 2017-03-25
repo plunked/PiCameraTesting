@@ -34,7 +34,7 @@ while True:
         print("test1")
         
         for (fX, fY, fW, fH) in faceRects:
-        cv2.rectangle(frameClone, (fX, fY), (fX+fW, fY+fH), (0, 255, 0), 2)
+            cv2.rectangle(frameClone, (fX, fY), (fX+fW, fY+fH), (0, 255, 0), 2)
         
         cv2.imshow("Face", frameClone)
         camera.rawCapture.truncate(0)
