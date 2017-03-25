@@ -4,7 +4,7 @@ import cv2
 class webCamStream:
     def __init__(self, src=0):
         self.stream = cv2.VideoCapture()
-        (self.grabbed, self.frame) = self.camera.read()
+        (self.grabbed, self.frame) = self.stream.read()
         self.stopped = False
         
     def start(self):
