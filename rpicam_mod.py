@@ -15,7 +15,7 @@ args = vars(ap.parse_args())
 
 camera = camStream(usePiCam=args["picam"] > 0, resolution=(640, 480)).start()
 time.sleep(2.0)
-
+print("test init")
 #constructing the detector
 fd = FaceDetector(args["face"])
 print("test0")
