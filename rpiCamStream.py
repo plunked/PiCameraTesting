@@ -3,7 +3,7 @@ from picamera import PiCamera
 from threading import thread
 import cv2
 
-class rpiVideoStream:
+class rpiCamStream:
     def __init__(self, resolution=(320, 240), framerate=32):
         self.camera = PiCamera()
         self.camera.resolution = resolution
@@ -33,4 +33,3 @@ class rpiVideoStream:
 
     def stop(self):
         self.stopped = True
-        
