@@ -13,7 +13,7 @@ ap.add_argument("-v", "--video", help="path to the video file")
 args = vars(ap.parse_args())
 
 
-camera = camStream(usePiCam=args["picam"] > 0, resolution=(640, 480)).start()
+camera = camStream(usePiCam=args["picam"] > 0).start()
 time.sleep(2.0)
 print("test init")
 #constructing the detector
