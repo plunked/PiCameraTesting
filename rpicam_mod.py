@@ -1,5 +1,5 @@
 from facedetector import FaceDetector
-from camStream import camStream
+from camstream import camStream
 import imutils
 import argparse
 import time
@@ -21,25 +21,23 @@ fd = FaceDetector(args["face"])
 print("test0")
 
 
-for frames in camera.stream():
-    frame = frames.array
-    frame = imutils.resize(frame, width=300)
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        
 
-    #detecting the faces and then cloning so as to draw
-    
-    faceRects=fd.detect(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
-    frameClone = frame.copy()
-    print("test1")
+while True:
 
-    for (fX, fY, fW, fH) in faceRects:
+    for frames in camera.read():
+        frame = frames.array
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        
+        faceRects=fd.detect(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+        frameClone = frame.copy()
+        print("test1")
+        
+        for (fX, fY, fW, fH) in faceRects:
         cv2.rectangle(frameClone, (fX, fY), (fX+fW, fY+fH), (0, 255, 0), 2)
-
-	# show our detected faces, then clear the frame in
-	# preparation for the next frame
-    cv2.imshow("Face", frameClone)
-    camera.rawCapture.truncate(0)
-
-    if cv2.waitKey(1) & 0xFF == ord("q"):
+        
+        cv2.imshow("Face", frameClone)
+        camera.rawCapture.truncate(0)
+        
+        if cv2.waitKey(1) & 0xFF == ord("q"):
         break
-
