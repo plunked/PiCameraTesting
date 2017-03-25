@@ -1,4 +1,4 @@
-from camStream import camStream
+from camstream import camStream
 import argparse
 import time
 import imutils
