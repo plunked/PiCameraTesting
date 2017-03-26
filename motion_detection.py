@@ -13,6 +13,10 @@ args = vars(ap.parse_args())
 
 if args.get("video", None) is None:
     camera = PiCamera()
+    camera.resolution = (640, 480)
+    camera.framerate = (32)
+    camera.vflip = True
+    rawCapture = PiRGBArray(camera, size=(640, 480))
     time.sleep(0.25)
 
 else:
@@ -20,13 +24,11 @@ else:
 
 firstFrame = None
 
-while True:
-    (grabbed, frame) = camera.read()
+for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port = True):
+
+    frame = frames.array
     text = "Unoccupied"
-
-    if not grabbed:
-        break
-
+    
     frame = imutils.resize(frame, width=500)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     gray = cv2.GaussianBlur(gray, (21, 21), 0 )
