@@ -44,11 +44,10 @@ while True:
     for c in cnts:
         if cv2.contourArea(c) < args["min area"]:
             continue
-        
-        (x, y, w, h) = cv2.boundingRect(c)
-        cv2.rectangle(frame, (x,y), (x + w, y + h), (0, 255, 0), 2)
-        text = "Occupied"
 
+        (x, y, w, h) = cv2.boundingRect(c)
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        text = "Occupied"
         cv2.putText(frame, "Room Status: {}".format(text), (10, 20), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 0.5, (0, 0, 255), 2)
         cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I: %M:%S%p"), (10, frame.shape[0] - [10]), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
 
