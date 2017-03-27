@@ -79,7 +79,7 @@ for f in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True
                 if conf["use_dropbox"]:
                     t = TempImage()
                     cv2.imwrite(t.path, frame)
-                    print "[UPLOAD] {}".format(ts)
+                    print("[UPLOAD] {}").format(ts)
                     path = "{base_path}/{timestamp}.jpg".format(base_path=conf["dropbox_base_path"], timestamp=ts)
                     client.put_file(path, open(t.path, "rb"))
                     t.cleanup()
