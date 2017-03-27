@@ -23,6 +23,7 @@ client = None
 camera = PiCamera()
 camera.resolution = tuple(conf["resolution"])
 camera.framerate = conf["fps"]
+camera.vflip = True
 rawCapture = PiRGBArray(camera, size=tuple(conf["resolution"]))
 
 # allow the camera to warmup, then initialize the average frame, last
