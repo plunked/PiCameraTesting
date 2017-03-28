@@ -50,11 +50,10 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
         text = "Occupied"
         cv2.imshow("Feed", frame)
-        cv2.imshow("Thresh", thresh)
-        cv2.imshow("Frame Delta", frameDelta)
+        #cv2.imshow("Thresh", thresh)
+        #cv2.imshow("Frame Delta", frameDelta)
         key = cv2.waitKey(1) & 0xFF
 
         if key == ord("q"):
             break
     rawCapture.truncate(0)
-    
