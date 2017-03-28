@@ -56,5 +56,5 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
 
         if key == ord("q"):
             break
-camera.release()
-cv2.destroyAllWindows()
+    rawCapture.truncate(0)
+    
