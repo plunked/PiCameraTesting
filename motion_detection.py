@@ -43,7 +43,7 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
     (_, cnts, _) = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     for c in cnts:
-        if cv2.contourArea(c) < args["min area"]:
+        if cv2.contourArea(c) < args["min_area"]:
             continue
 
         (x, y, w, h) = cv2.boundingRect(c)
