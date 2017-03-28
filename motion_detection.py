@@ -36,6 +36,7 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
         firstFrame = gray.copy().astype("float")
         rawCapture.truncate(0)
         continue
+    
     cv2.accumulateWeighted(gray, firstFrame, 0.5)      
     frameDelta = cv2.absdiff(gray, cv2.convertScaleAbs(firstFrame))
     thresh = cv2.threshold(frameDelta, 2, 255, cv2.THRESH_BINARY)[1]
@@ -48,12 +49,10 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
 
         (x, y, w, h) = cv2.boundingRect(c)
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-        text = "Occupied"
         cv2.imshow("Feed", frame)
-        #cv2.imshow("Thresh", thresh)
-        #cv2.imshow("Frame Delta", frameDelta)
-        key = cv2.waitKey(1) & 0xFF
 
-        if key == ord("q"):
-            break
+    key = cv2.waitKey(1) & 0xFF
+
+    if key == ord("q"):
+        break
     rawCapture.truncate(0)
