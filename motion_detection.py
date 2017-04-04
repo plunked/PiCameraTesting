@@ -55,3 +55,4 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
     if key == ord("q"):
         break
     rawCapture.truncate(0)
+
