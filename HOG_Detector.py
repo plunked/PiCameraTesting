@@ -32,5 +32,7 @@ while True:
         cv2.rectangle(frameClone, (fX, fY), (fX+fW, fY+fH), (0, 255, 0), 2)
     
     cv2.imshow('feed', frameClone)
+
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
+
