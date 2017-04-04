@@ -1,15 +1,8 @@
-from facedetector import FaceDetector
+import time
 import imutils
 from picamera import PiCamera
 from picamera.array import PiRGBArray
-import argparse
-import time
 import cv2
-
-#constructing argument parser
-ap = argparse.ArgumentParser()
-ap.add_argument("-v", "--video", help="path to the video file")
-args = vars(ap.parse_args())
 
 #initializing PiCamera
 camera = PiCamera()

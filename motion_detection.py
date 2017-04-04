@@ -27,7 +27,6 @@ firstFrame = None
 for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
 
     frame = frames.array
-    text = "Unoccupied"
     frame = imutils.resize(frame, width=300)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     gray = cv2.GaussianBlur(gray, (21, 21), 0 )
