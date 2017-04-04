@@ -28,9 +28,13 @@ for frames in camera.capture_continuous(rawCapture, format="bgr", use_video_port
     frame = frames.array
     frame = imutils.resize(frame, width=300)
 
-    found, w = HOG.detectMultiScale(frame, winStride=(8, 8), padding=(32, 32), scale=1.05)
-    draw_detections(frame, found)
-    cv2.imshow("feed", frame)
+    hogRects, w = HOG.detectMultiScale(frame, winStride=(8, 8), padding=(32, 32), scale=1.05)
+    frameClone = frame.copy()
+
+    for (fX, fY, fW, fH) in hogRects:
+        cv2.rectangle(frameClone, (fX, fY), (fX+fW, fY+fH), (0, 255, 0), 2)
+
+    cv2.imshow("feed", frameClone)
     rawCapture.truncate(0)
 
     if cv2.waitKey(1) & 0xFF == ord("q"):
