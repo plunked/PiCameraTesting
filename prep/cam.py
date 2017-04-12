@@ -11,12 +11,10 @@ args = vars(ap.parse_args())
 fd = FaceDetector(args["face"])
 
 if not args.get("video", False):
-    camera = cv2.VideoCapture(0)
+    camera = cv2.VideoCapture(1)
 
 else:
     camera = cv2.VideoCapture(args["video"])
-
-
 
 while True:
     (grabbed, frame) = camera.read()
@@ -30,12 +28,12 @@ while True:
     faceRects = fd.detect(gray, scaleFactor = 1.1, minNeighbors = 5, minSize = (30, 30))
     frameClone = frame.copy()
 
-    for (fX, fY, fH) in faceRects:
+    for (fX, fY, fW, fH) in faceRects:
         cv2.rectangle(frameClone, (fX, fY), (fX+fW, fY+fH), (0, 255, 0), 2)
 
     cv2.imshow("Face", frameClone)
 
-    if cv2.waitKey(1) & Oxff == ord("q"):
+    if cv2.waitKey(1) & 0xff == ord("q"):
         break
 
 camera.release()
