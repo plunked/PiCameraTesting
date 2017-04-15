@@ -1,4 +1,4 @@
-from facedetector import FaceDetector
+from faceDetector import FaceDetector
 import imutils
 from picamera import PiCamera
 from picamera.array import PiRGBArray
