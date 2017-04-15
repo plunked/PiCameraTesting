@@ -8,13 +8,13 @@ The objectives of this project are as follows:
 The algorithms are implemented in Python using the OpenCV library.
 
 ## Requirements
--Hardware
-    - Raspberry Pi
-    - PiCamera
-    - USB Camera (optional)
--Software
-    - OpenCV 3.2.0 and above
-    - Python 3.4 and above (tested with up to Python 3.6.1)
+- Hardware
+    Raspberry Pi
+    PiCamera
+    USB Camera (optional)
+- Software
+    OpenCV 3.2.0 and above
+    Python 3.4 and above (tested with up to Python 3.6.1)
     
 ## Installing Python3 and OpenCV on Raspbian Wheezy/Jessie
 ### Raspbian Wheezy
