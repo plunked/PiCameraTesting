@@ -52,7 +52,7 @@ workon humanDetection
 ```
 All work will be performed inside the humanDetection python virtual environment. 
 
-####OpenCV
+#### OpenCV
 
 ```
 cd ~
