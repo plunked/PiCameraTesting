@@ -23,7 +23,6 @@ while True:
     if args.get("video") and not grabbed:
         break
     
-    frame = frames.array
     frame.imutils.resize(frame, width=300)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
