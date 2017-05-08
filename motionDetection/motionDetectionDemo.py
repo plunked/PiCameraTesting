@@ -19,7 +19,6 @@ else:
 firstFrame = None
 
 while True:
-    
     frame = frames.array
     frame = imutils.resize(frame, width=300)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
